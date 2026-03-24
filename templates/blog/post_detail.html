@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+ {% block content %}
+ <div class="main">
+    <div class="posts">
+        <div class="container-post">
+            <div class="title">
+                <h2>{{ post.title }}</h2>
+            </div>
+            <div class="content">
+                <p class="info">
+                    Published: {{ post.created_at|date:"Y/m/d" }} |
+                    Category: {{ post.get_category_display }}
+                </p>
+
+                <p class="text">
+                    {{ post.content|linebreaks }}
+                </p>
+
+                <a href="/" class="main-btn">Return to News</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

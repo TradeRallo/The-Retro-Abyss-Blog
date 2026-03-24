@@ -1,0 +1,233 @@
+body {
+    font-family: "Tahoma", sans-serif;
+    background: #BCBCBC;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* чтобы занимала весь экран */
+}
+
+.header {
+    height: 210px;
+    width: 1000px;
+    background: #A3A3A3;
+    margin-top: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #000;
+    box-shadow: 0px 3px 6px #444;
+}
+
+.title {
+    height: 150px;
+    background: linear-gradient(180deg, #777777 0%, #2C2C2C 100%);
+}
+
+.title img {
+    margin-left: 2%;
+    margin-right: auto;
+    width: 950px;
+    height: auto;
+}
+
+.title h2, .container-post .title h2 {
+    margin-left: 20px;
+    margin-top: 0px;
+    color: #fff;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.navpanel .main-btn, .navpanel .main-btn-inactive {
+    font-family: "Tahoma", sans-serif;
+    background: linear-gradient(180deg, #777777 0%, #2C2C2C 100%);
+    color: #fff;
+    height: 34px;
+    padding: 10px auto;
+    box-shadow: 0px 3px 6px #444;
+    padding: 0 10px;
+}
+
+.navpanel .main-btn-inactive {
+    background: linear-gradient(180deg, ##595959 0%, ##171717 100%);
+    color: #8c8c8c;
+}
+
+.navpanel .main-btn:hover {
+    background: linear-gradient(180deg, #CECECE 0%, #2C2C2C 100%);
+}
+
+.navpanel .active-btn{
+    font-family: "Tahoma", sans-serif;
+    background: linear-gradient(180deg, #2C2C2C 0%, #CECECE 100%);
+    color: #fff;
+    height: 34px;
+    box-shadow: 0px 3px 6px #444;
+    padding: 0 10px;
+}
+
+.navpanel .left-panel {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    z-index: 2;
+    position: relative;
+    margin-left: 10px;
+    margin-top:12px;
+    gap: 15px;
+}
+
+.navpanel .right-panel {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 2;
+    position: relative;
+    margin-left:900px;
+
+    margin-top:-32px;
+    margin-right: 10px;
+
+    gap: 15px;
+}
+
+.navpanel .page-panel {
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    margin: 0 auto;
+
+    margin-top:-32px;
+    margin-right: 10px;
+    padding: 8px 0;
+    gap: 6px;
+}
+
+footer {
+    margin-top: auto;
+    flex-shrink: 0;
+
+    background-color: #A3A3A3;
+    width: 100%;
+}
+
+footer .navpanel {
+
+    background-color: #A3A3A3;
+    height: 20px;
+    width: 100%;
+    border-top: 1px solid #000;
+    padding-top: 35px;
+    padding-bottom: -30px;
+
+}
+
+footer .copyright {
+    background-color: #2C2C2C;
+    height: 40px;
+    color: #777777;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    gap: -120px;
+    
+}
+
+footer .copyright p {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.wrapper .main {
+    flex: 1;
+
+    width: 1000px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.posts .container-post {
+    background: #A3A3A3;
+    border: 1px solid #000;
+    box-shadow: 0px 3px 6px #444;
+    margin-bottom: 20px;
+
+   
+    width: 596px;
+}
+
+.categories .container-post {
+    background: #A3A3A3;
+    border: 1px solid #000;
+    box-shadow: 0px 3px 6px #444;
+    margin-bottom: 20px;
+
+    border: 1px solid #000;
+    width: 368px;
+}
+
+.container-post .title {
+    font-size: 14px;
+    font-weight: 600;
+    height: 30px;
+    background: linear-gradient(180deg, #777777 0%, #2C2C2C 100%);
+    display: flex;
+    justify-content: flex-start;
+}
+
+.container-post .content {
+    min-height: 20px;
+    font-family: "Verdana", sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    padding: 10px 10px;
+}
+
+.container-post .content a {
+    color: #4C4C4C;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container-post .title a {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container-post .content a:hover,  .container-post .title a:hover {
+    text-decoration: underline;
+}
+
+.container-post .content li {
+    list-style: none;
+    margin-right: 10px;
+}
+
+.content .info {
+    color: #4C4C4C;
+    margin-top: 4px;
+}
+
+
+.container-post .title h2 {
+    font-family: "Tahoma", sans-serif;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    margin: auto 0;
+    margin-left: 6px;
+    margin-bottom: 8px;
+}
+

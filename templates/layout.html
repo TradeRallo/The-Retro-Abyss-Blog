@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Abyss Blog</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="title">
+                <img src="/pictures/elements/Frame 2.png" alt="">
+                <h2>Blog about Retro Abyss project and Saigotsuki Reiga’s life</h2>
+            </div>
+            <div class="navpanel">
+                <div class="container left-panel">
+                    <button class="active-btn">NEWS</button>
+                    <button class="main-btn" onclick="window.location.href='gallery.html'">GALLERY</button>
+                    <button class="main-btn" onclick="window.location.href='about.html'">ABOUT</button>
+                </div>
+                <div class="container right-panel">
+                    <button class="active-btn">EN</button>
+                    <button class="main-btn">JP</button>
+                </div>
+            </div>
+        </div>
+
+        <main class="main">
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <footer>
+            <div class="navpanel">
+                <div class="container page-panel">
+                    <!-- Первая страница -->
+                    <a href="?page=1"><button class="main-btn">&lt;&lt;</button></a>
+
+                    <!-- Предыдущая страница -->
+                    {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}"><button class="main-btn">&lt;</button></a>
+                    {% else %}
+                    <button class="main-btn-inactive" disabled>&lt;</button>
+                    {% endif %}
+
+                    <!-- Номера страниц (максимум 5) -->
+                    {% for i in paginator.page_range %}
+                        {% if i >= page_obj.number|add:"-2" and i <= page_obj.number|add:"2" %}
+                            {% if i == page_obj.number %}
+                            <button class="active-btn">{{ i }}</button>
+                            {% else %}
+                            <a href="?page={{ i }}"><button class="main-btn">{{ i }}</button></a>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+
+                    <!-- Следующая страница -->
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}"><button class="main-btn">&gt;</button></a>
+                    {% else %}
+                    <button class="main-btn-inactive" disabled>&gt;</button>
+                    {% endif %}
+
+                    <!-- Последняя страница -->
+                    <a href="?page={{ paginator.num_pages }}"><button class="main-btn">&gt;&gt;</button></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <!-- <p>Version: 08.1</p> -->
+                <p>© 2008 Retro Abyss Blog.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

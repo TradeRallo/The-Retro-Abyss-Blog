@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+ {% block content %}
+<div class="main">
+            <div class="posts">
+    {% for post in page_obj %}
+        <div class="container-post">
+            <div class="title">
+                <h2>
+                    <a href="{% url 'post_detail' post.id %}">
+                        {{ post.title }}
+                    </a>
+                </h2>
+            </div>
+            <div class="content">
+                <p class="info">
+                    #{{ post.id }} |
+                    Published: {{ post.created_at|date:"Y/m/d" }} |
+                    Category: {{ post.get_category_display }}
+                </p>
+                <p class="text">
+                    {{ post.content }}
+                </p>
+            </div>
+        </div>
+    {% empty %}
+        <div class="container-post">
+            <div class="title">
+                <h2>Information</h2>
+            </div>
+            <div class="content">
+                <p class="text">
+                    Nothing yet. But there will be soon...
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+            <div class="categories">
+                <div class="container-post">
+                    <div class="title">
+                        <h2>Categories</h2>
+                    </div>
+                    <div class="content">
+                        <li><a href="/">#All</a></li>
+                        <li><a href="?category=news">#News</a></li>
+                        <li><a href="?category=diary">#Diary</a></li>
+                        <li><a href="?category=dev">#Dev Log</a></li>
+                        <li><a href="?category=music">#Music</a></li>
+                        <li><a href="?category=gallery">#Gallery</a></li>
+                        <li><a href="?category=world">#World</a></li>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
