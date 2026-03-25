@@ -1,45 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Abyss Blog</title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
-    <div class="header">
-        <div class="title">
-            <img src="/pictures/elements/Frame 2.png" alt="">
-            <h2>Blog about Retro Abyss project and Saigotsuki Reiga’s life</h2>
-        </div>
-        <div class="navpanel">
-            <div class="container left-panel">
-                <button class="main-btn" onclick="window.location.href='news.html'">NEWS</button>
-                <button class="main-btn" onclick="window.location.href='gallery.html'">GALLERY</button>
-                <button class="active-btn">ABOUT</button>
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="main">
+
+    <!-- Основной блок -->
+    <div class="posts">
+
+        <div class="container-post">
+            <div class="title">
+                <h2>About Retro Abyss</h2>
             </div>
-            <div class="container right-panel">
-                <button class="active-btn">EN</button>
-                <button class="main-btn">JP</button>
+            <div class="content">
+                <p>
+                    Retro Abyss is a personal creative project that began in 2008.
+                    It represents a fusion of music, visual art, and experimental ideas,
+                    forming a unique digital world.
+                </p>
+
+                <p>
+                    The project was created as a space for self-expression — a place where
+                    thoughts, emotions, and concepts could exist without restrictions.
+                </p>
+
+                <p class="info">
+                    Status: Ongoing | Origin: 2008
+                </p>
+            </div>
+        </div>
+
+        <div class="container-post">
+            <div class="title">
+                <h2>Author</h2>
+            </div>
+            <div class="content">
+                <p>
+                    The project is developed by Saigotsuki Reiga — a fictional persona
+                    representing the creative identity behind Retro Abyss.
+                </p>
+
+                <p>
+                    Through this character, the author explores themes of isolation,
+                    transformation, and artistic growth.
+                </p>
+            </div>
+        </div>
+
+        <div class="container-post">
+            <div class="title">
+                <h2>Philosophy</h2>
+            </div>
+            <div class="content">
+                <p>
+                    Retro Abyss is not just a blog — it is a timeline of evolution.
+                    Each entry, track, or artwork is a fragment of a larger narrative.
+                </p>
+
+                <p>
+                    Imperfection is part of the process. Early works remain unchanged
+                    to preserve authenticity and the feeling of that moment in time.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Боковая панель -->
+    <div class="categories">
+        <div class="container-post">
+            <div class="title">
+                <h2>Project Timeline</h2>
+            </div>
+            <div class="content">
+                <li>2008 — Project started</li>
+                <li>2008 — First blog version (v08.1b)</li>
+                <li>2008 — First tracks and visual concepts</li>
+            </div>
+        </div>
+
+        <div class="container-post">
+            <div class="title">
+                <h2>Links</h2>
+            </div>
+            <div class="content">
+                <li><a href="{% url 'news' %}">→ News Feed</a></li>
+                <li><a href="{% url 'gallery' %}">→ Gallery</a></li>
+                <li><a href="{% url 'home' %}">→ Home</a></li>
             </div>
         </div>
     </div>
-    
-    <footer>
-        <div class="navpanel">
-            <div class="container page-panel">
-                <button class="main-btn">&lt;&lt;</button>
-                <button class="main-btn">&lt;</button>
-                <button class="active-btn">1</button>
-                <button class="main-btn">2</button>
-                <button class="main-btn">3</button>
-                <button class="main-btn">&gt;</button>
-                <button class="main-btn">&gt;&gt;</button>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>© 2008 Retro Abyss Blog</p>
-        </div>
-    </footer>
-</body>
-</html>
+
+</div>
+{% endblock %}

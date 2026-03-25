@@ -11,14 +11,34 @@
     <div class="wrapper">
         <div class="header">
             <div class="title">
-                <img src="static/pictures/elements/logo.png" alt="">
+                <img src="{% static 'pictures/elements/logo.png' %}" alt="">
                 <h2>Blog about Retro Abyss project and Saigotsuki Reiga’s life</h2>
             </div>
             <div class="navpanel">
                 <div class="container left-panel">
-                    <button class="active-btn">NEWS</button>
-                    <button class="main-btn" onclick="window.location.href='gallery.html'">GALLERY</button>
-                    <button class="main-btn" onclick="window.location.href='about.html'">ABOUT</button>
+                    <a href="{% url 'home' %}">
+                        <button class="{% if request.resolver_match.url_name == 'home' %}active-btn{% else %}main-btn{% endif %}">
+                            HOME
+                        </button>
+                    </a>
+
+                    <a href="{% url 'news' %}">
+                        <button class="{% if request.resolver_match.url_name == 'news' %}active-btn{% else %}main-btn{% endif %}">
+                            NEWS
+                        </button>
+                    </a>
+
+                    <a href="{% url 'gallery' %}">
+                        <button class="{% if request.resolver_match.url_name == 'gallery' %}active-btn{% else %}main-btn{% endif %}">
+                            GALLERY
+                        </button>
+                    </a>
+
+                    <a href="{% url 'about' %}">
+                        <button class="{% if request.resolver_match.url_name == 'about' %}active-btn{% else %}main-btn{% endif %}">
+                            ABOUT
+                        </button>
+                    </a>
                 </div>
                 <div class="container right-panel">
                     <button class="active-btn">EN</button>
@@ -33,6 +53,7 @@
         </main>
 
         <footer>
+            {% if request.resolver_match.url_name == 'news' %}
             <div class="navpanel">
                 <div class="container page-panel">
                     <!-- Первая страница -->
@@ -67,6 +88,7 @@
                     <a href="?page={{ paginator.num_pages }}"><button class="main-btn">&gt;&gt;</button></a>
                 </div>
             </div>
+            {% endif %}
             <div class="copyright">
                 <!-- <p>Version: 08.1</p> -->
                 <p>© 2008 Retro Abyss Blog.</p>

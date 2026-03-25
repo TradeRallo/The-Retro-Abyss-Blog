@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 # Create your views here.
 from django.http import HttpResponse
 
-def index(request):
+def news(request):
     # return render(request, 'blog/news.html')
     category = request.GET.get('category')  # получаем ?category=news
 

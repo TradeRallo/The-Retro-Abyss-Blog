@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="main">
+
+    <!-- Основной блок -->
+    <div class="posts">
+
+        <div class="container-post">
+            <div class="title">
+                <h2>Welcome to Retro Abyss</h2>
+            </div>
+            <div class="content">
+                <p>
+                    This is the official blog and archive of the Retro Abyss project.
+                    Here you will find development logs, personal notes, music releases,
+                    and visual experiments created over time.
+                </p>
+
+                <p>
+                    The project reflects a journey through creativity, isolation,
+                    and self-expression — blending music, art, and code into a single universe.
+                </p>
+
+                <p class="info">
+                    Status: Active | Year: 2008 | Version: v08.1b
+                </p>
+            </div>
+        </div>
+
+        <div class="container-post">
+            <div class="title">
+                <h2>Latest Update</h2>
+            </div>
+            <div class="content">
+                <p>
+                    The blog system is now fully functional. Pagination, categories,
+                    and navigation have been implemented. Work continues on gallery
+                    and interactive components.
+                </p>
+
+                <p class="info">
+                    Navigate using the buttons above to explore the project.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Боковая панель -->
+    <div class="categories">
+        <div class="container-post">
+            <div class="title">
+                <h2>Navigation</h2>
+            </div>
+            <div class="content">
+                <li><a href="{% url 'news' %}">→ News Feed</a></li>
+                <li><a href="{% url 'gallery' %}">→ Gallery</a></li>
+                <li><a href="{% url 'about' %}">→ About Project</a></li>
+            </div>
+        </div>
+
+        <div class="container-post">
+            <div class="title">
+                <h2>Project Info</h2>
+            </div>
+            <div class="content">
+                <p>Author: Saigotsuki Reiga</p>
+                <p>Started: 2008</p>
+                <p>Type: Personal Creative Archive</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

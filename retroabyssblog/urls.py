@@ -20,8 +20,10 @@ from django.conf.urls import handler404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('blog.urls')),
+    path('', include('home.urls')),
+    path('news/', include('blog.urls')),
     path('gallery/', include('media.urls')),
+    path('about/', include('bio.urls')),
 ]
 
 handler404 = 'blog.views.custom_404'
