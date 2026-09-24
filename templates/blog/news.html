@@ -1,56 +1,112 @@
 {% extends 'layout.html' %}
 
- {% block content %}
+{% block content %}
 <div class="main">
-            <div class="posts">
-    {% for post in page_obj %}
+
+    <!-- Блок постов -->
+    <div class="posts">
+        {% for post in page_obj %}
         <div class="container-post">
             <div class="title">
                 <h2>
-                    <a href="{% url 'post_detail' post.id %}">
-                        {{ post.title }}
-                    </a>
+                    <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
                 </h2>
             </div>
             <div class="content">
                 <p class="info">
-                    #{{ post.id }} |
-                    Published: {{ post.created_at|date:"Y/m/d" }} |
-                    Category: {{ post.get_category_display }}
+                    #{{ post.id }} | Published: {{ post.created_at|date:"Y/m/d" }} | Category: {{ post.get_category_display }}
                 </p>
-                <p class="text">
-                    {{ post.content }}
-                </p>
+                <p class="text">{{ post.content }}</p>
             </div>
         </div>
-    {% empty %}
+        {% empty %}
         <div class="container-post">
-            <div class="title">
-                <h2>Information</h2>
-            </div>
+            <div class="title"><h2>Information</h2></div>
             <div class="content">
-                <p class="text">
-                    Nothing yet. But there will be soon...
-                </p>
+                <p class="text">Nothing yet. But there will be soon...</p>
             </div>
         </div>
-    {% endfor %}
-</div>
-            <div class="categories">
-                <div class="container-post">
-                    <div class="title">
-                        <h2>Categories</h2>
-                    </div>
-                    <div class="content">
-                        <li><a href="/news">#All</a></li>
-                        <li><a href="?category=news">#News</a></li>
-                        <li><a href="?category=diary">#Diary</a></li>
-                        <li><a href="?category=dev">#Dev Log</a></li>
-                        <li><a href="?category=music">#Music</a></li>
-                        <li><a href="?category=gallery">#Gallery</a></li>
-                        <li><a href="?category=world">#World</a></li>
-                    </div>
+        {% endfor %}
+    </div>
+
+    <div class="right-block">
+
+
+    <!-- Блок категорий -->
+    <div class="categories">
+        <div class="container-post">
+            <div class="title"><h2>Categories</h2></div>
+            <div class="content">
+                <ul>
+                    <li><a href="/news">#All</a></li>
+                    <li><a href="?category=news">#News</a></li>
+                    <li><a href="?category=diary">#Diary</a></li>
+                    <li><a href="?category=dev">#Dev Log</a></li>
+                    <li><a href="?category=music">#Music</a></li>
+                    <li><a href="?category=art">#Art</a></li>
+                    <li><a href="?category=world">#World</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+   <!-- Фильтр по дате -->
+    <div class="date-filter">
+        <div class="container-post">
+
+            <div class="title">
+                <h2>Date</h2>
+            </div>
+
+            <div class="content">
+
+                <!-- Текущая дата -->
+                <div class="current-date">
+                    {{ now|date:"F d, Y" }}
                 </div>
+                <br>
+                <!-- Выбор даты -->
+                <form method="get" class="date-select">
+
+                    {% if current_category %}
+                        <input type="hidden" name="category" value="{{ current_category }}">
+                    {% endif %}
+
+                    <select name="month">
+                        {% for m_num, m_name in months %}
+                            <option value="{{ m_num }}"
+                                    {% if m_num == month %}selected{% endif %}>
+                                {{ m_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+
+                    <select name="year">
+                        {% for y in years %}
+                            <option value="{{ y }}"
+                                    {% if y == year %}selected{% endif %}>
+                                {{ y }}
+                            </option>
+                        {% endfor %}
+                    </select>
+
+                    <input type="hidden" name="filter_date" value="on">
+
+                    <button type="submit">Filter</button>
+
+                </form>
+                <br>
+                {% if filter_by_date %}
+                    <a href="{% url 'news' %}" class="clear-filter">
+                        Show all posts
+                    </a>
+                {% endif %}
+
             </div>
         </div>
+    </div>
+
+
+    </div>
+</div>
 {% endblock %}
